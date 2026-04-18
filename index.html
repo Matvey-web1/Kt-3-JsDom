@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kt№3</title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="main">
+      <li>
+        Книги
+        <ul>
+          <li>Отечественные</li>
+          <li>
+            Зарубежные
+            <ul>
+              <li>Детективы</li>
+              <li>Научная фантастика</li>
+              <li>Исторические</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        DVD
+        <ul>
+          <li>
+            Отечественные
+            <ul>
+              <li>Детективы</li>
+              <li>Научная фантастика</li>
+              <li>Исторические</li>
+            </ul>
+          </li>
+          <li>Зарубежные</li>
+        </ul>
+      </li>
+    </ul>
+    <script>
+      const uls = document.querySelectorAll("ul");
+      const lis = document.querySelectorAll("li");
+
+      uls.forEach((el) => {
+        if (el.parentElement.localName === "li") {
+          el.classList.add("hidden");
+        }
+      });
+
+      const main = document.getElementById("main");
+
+      main.addEventListener("click", (e) => {
+        const target = e.target;
+
+        if (target.querySelector("ul") != null) {
+          target.querySelector("ul").classList.toggle("hidden");
+        }
+      });
+    </script>
+  </body>
+</html>
